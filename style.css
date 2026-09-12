@@ -1,0 +1,453 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --ivory: #f8f2e5;
+  --ivory2: #fffaf0;
+  --brown: #3c2418;
+  --brown2: #68432d;
+  --blue: #315b8a;
+  --blue-light: #7898b8;
+  --gold: #b8862d;
+  --gold-light: #d7b15a;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--ivory);
+}
+
+body {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--brown);
+}
+
+.reel {
+  width: 100%;
+  height: 100svh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.reel::-webkit-scrollbar { display: none; }
+
+.scene {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.72), transparent 52%),
+    var(--ivory);
+}
+
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 1px solid rgba(184,134,45,.65);
+  pointer-events: none;
+}
+
+.scene::after {
+  content: "✦";
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* Floral corners made with CSS so the site needs no image assets */
+.scene .flower,
+.blue-bloom {
+  position: absolute;
+  z-index: -1;
+  color: var(--blue);
+  font-size: 105px;
+  line-height: .8;
+  opacity: .9;
+  filter: drop-shadow(0 8px 7px rgba(40,40,40,.08));
+}
+.flower-tl { top: -5px; left: -28px; transform: rotate(-25deg); }
+.flower-tr { top: -5px; right: -28px; transform: rotate(25deg); }
+.bottom-left { bottom: -25px; left: -18px; transform: rotate(20deg); }
+.bottom-right { bottom: -25px; right: -18px; transform: rotate(-20deg); }
+
+.gold-frame {
+  position: absolute;
+  inset: 34px;
+  border: 1px solid rgba(184,134,45,.35);
+  pointer-events: none;
+}
+.gold-frame::before,
+.gold-frame::after {
+  content: "❈";
+  position: absolute;
+  color: var(--gold);
+  font-size: 18px;
+}
+.gold-frame::before { top: -12px; left: 50%; transform: translateX(-50%); }
+.gold-frame::after { bottom: -12px; left: 50%; transform: translateX(-50%); }
+
+.cover-content {
+  width: min(92%, 430px);
+  text-align: center;
+  animation: reveal 1.5s ease both;
+}
+
+.arabic {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(21px, 6vw, 29px);
+  margin: 0 0 10px;
+  color: var(--brown);
+}
+
+.small {
+  font-size: 15px;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.ornament {
+  margin: 25px 0;
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+.invite {
+  font-size: 18px;
+  line-height: 1.35;
+  margin: 0 auto 18px;
+}
+
+.heart-monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 10px 0;
+  color: var(--brown);
+}
+.heart-monogram span {
+  font-size: 48px;
+  color: var(--gold);
+  margin: 0 -7px;
+}
+.heart-monogram b {
+  position: relative;
+  z-index: 2;
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 500;
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--gold);
+  border-radius: 50% 50% 45% 45%;
+  background: rgba(255,250,240,.65);
+}
+.heart-monogram i {
+  position: absolute;
+  z-index: 4;
+  font-size: 20px;
+  font-style: normal;
+  color: var(--gold);
+  transform: translateY(1px);
+}
+
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-size: clamp(57px, 16vw, 92px);
+  line-height: .95;
+  margin: 15px 0 5px;
+  color: var(--brown);
+}
+h1 em {
+  font-family: "Cormorant Garamond", serif;
+  font-size: .45em;
+  font-style: italic;
+  color: var(--gold);
+  vertical-align: middle;
+}
+
+.subtitle {
+  margin: 10px 0;
+  font-size: 17px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.scroll {
+  margin-top: 32px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--brown2);
+}
+.scroll span {
+  display: block;
+  font-size: 18px;
+  margin-top: 7px;
+  animation: bob 1.4s infinite;
+}
+
+/* Inner invitation */
+.card, .detail-card {
+  position: relative;
+  width: min(100%, 420px);
+  text-align: center;
+  padding: 48px 28px;
+  border: 1px solid rgba(184,134,45,.7);
+  background: rgba(255,250,240,.62);
+  box-shadow: 0 20px 60px rgba(62,38,20,.08);
+}
+.card::before, .card::after,
+.detail-card::before, .detail-card::after {
+  content: "✦";
+  position: absolute;
+  color: var(--gold);
+  font-size: 18px;
+}
+.card::before, .detail-card::before { top: 10px; left: 14px; }
+.card::after, .detail-card::after { bottom: 10px; right: 14px; }
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--blue);
+  margin: 0 0 16px;
+}
+
+.card h2, .detail-card h2, .rsvp h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-size: 31px;
+  line-height: 1.1;
+  margin: 0;
+}
+.card h2 span {
+  font-family: "Great Vibes", cursive;
+  color: var(--gold);
+  font-size: 27px;
+}
+
+.names {
+  font-family: "Great Vibes", cursive;
+  font-size: 48px;
+  margin: 20px 0;
+}
+.names small {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold);
+  font-size: 24px;
+}
+
+.line {
+  width: 90px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 23px;
+}
+
+.body-copy {
+  font-size: 18px;
+  line-height: 1.55;
+  margin: 0 auto;
+  max-width: 330px;
+}
+
+.double-heart {
+  margin-top: 27px;
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+
+/* Details */
+.details {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(120,152,184,.13), transparent 25%),
+    radial-gradient(circle at 90% 80%, rgba(49,91,138,.11), transparent 25%),
+    var(--ivory);
+}
+.detail-card {
+  padding: 48px 25px;
+}
+.detail-card .icon {
+  font-size: 30px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.detail-card h2 {
+  font-size: 30px;
+}
+.day {
+  font-size: 20px;
+  margin: 7px 0;
+  color: var(--blue);
+  font-style: italic;
+}
+.time {
+  font-size: 19px;
+  margin: 0;
+}
+.mini-ornament {
+  color: var(--gold);
+  margin: 25px 0;
+}
+.venue-title {
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.detail-card p:not(.eyebrow):not(.day):not(.time):not(.venue-title) {
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 4px 0;
+}
+
+/* RSVP */
+.rsvp-content {
+  text-align: center;
+  width: min(100%, 430px);
+  padding: 30px 20px;
+}
+.rsvp h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 58px;
+  color: var(--brown);
+  margin-bottom: 18px;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0 25px;
+}
+.countdown div {
+  width: 66px;
+  padding: 10px 4px;
+  border: 1px solid rgba(184,134,45,.6);
+  background: rgba(255,255,255,.38);
+}
+.countdown strong {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 23px;
+}
+.countdown span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.button {
+  display: inline-block;
+  margin-top: 27px;
+  padding: 14px 28px;
+  border: 1px solid var(--gold);
+  color: var(--brown);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  background: rgba(255,250,240,.8);
+  transition: .25s ease;
+}
+.button:active { transform: scale(.96); }
+
+.footer-note {
+  margin-top: 48px;
+  font-style: italic;
+  font-size: 17px;
+}
+.final-heart {
+  font-size: 45px;
+  color: var(--gold);
+  line-height: 1;
+}
+.rsvp h3 {
+  font-family: "Great Vibes", cursive;
+  font-size: 44px;
+  font-weight: 400;
+  margin: 2px 0;
+}
+.forever {
+  color: var(--blue);
+  font-style: italic;
+}
+
+/* Sound button */
+.sound {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 20;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: rgba(255,250,240,.88);
+  color: var(--brown);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Floating petals */
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+.petal {
+  position: absolute;
+  top: -20px;
+  width: 7px;
+  height: 11px;
+  border-radius: 70% 30% 70% 30%;
+  background: var(--blue-light);
+  opacity: .45;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to { transform: translate3d(var(--drift), 110vh, 0) rotate(540deg); }
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bob {
+  50% { transform: translateY(6px); }
+}
+
+@media (min-width: 700px) {
+  .scene { max-width: 480px; margin: 0 auto; }
+  body { background: #d8d2c5; }
+  .reel { background: var(--ivory); }
+}
+
+@media (max-height: 650px) {
+  .cover-content { transform: scale(.82); }
+  .card, .detail-card { padding: 30px 22px; }
+}

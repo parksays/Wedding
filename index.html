@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#f8f2e5" />
+  <title>Shafiya & Ifroz | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating decorative petals -->
+  <div class="petals" aria-hidden="true"></div>
+
+  <main class="reel">
+
+    <!-- 01: COVER -->
+    <section class="scene cover">
+      <div class="flower flower-tl">❀</div>
+      <div class="flower flower-tr">❀</div>
+      <div class="gold-frame"></div>
+
+      <div class="cover-content">
+        <p class="arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+        <p class="small">In the name of Allah, the most beneficent<br>and merciful</p>
+
+        <div class="ornament">✦ ───── ❈ ───── ✦</div>
+
+        <p class="invite">Together with their families,<br>we invite you to celebrate</p>
+
+        <div class="heart-monogram">
+          <span>♡</span>
+          <b>S</b>
+          <i>&</i>
+          <b>I</b>
+          <span>♡</span>
+        </div>
+
+        <h1>Shafiya <em>&</em> Ifroz</h1>
+        <p class="subtitle">A beautiful beginning to forever</p>
+
+        <div class="ornament">✦ ───── ❈ ───── ✦</div>
+        <p class="scroll">SCROLL TO OPEN <span>↓</span></p>
+      </div>
+
+      <div class="blue-bloom bottom-left">✿</div>
+      <div class="blue-bloom bottom-right">✿</div>
+    </section>
+
+    <!-- 02: INVITATION -->
+    <section class="scene invitation">
+      <div class="card">
+        <p class="eyebrow">YOU ARE CORDIALLY INVITED</p>
+        <h2>To the Wedding<br><span>of</span></h2>
+        <div class="names">Shafiya <small>&</small> Ifroz</div>
+        <div class="line"></div>
+        <p class="body-copy">
+          With hearts full of happiness and gratitude,
+          we request the pleasure of your company
+          as we begin our new journey together.
+        </p>
+        <div class="double-heart">♡ S & I ♡</div>
+      </div>
+    </section>
+
+    <!-- 03: NIKAH -->
+    <section class="scene details">
+      <div class="detail-card">
+        <div class="icon">♢</div>
+        <p class="eyebrow">THE NIKAH</p>
+        <h2>6 October 2026</h2>
+        <p class="day">Tuesday</p>
+        <p class="time">at <strong>1:30 p.m.</strong></p>
+        <div class="mini-ornament">❈</div>
+        <p class="venue-title">Venue</p>
+        <p>A.R. Function Hall</p>
+        <p>Near Mockuppal Railway Gate,<br>MPL Road, Kadiri.</p>
+      </div>
+    </section>
+
+    <!-- 04: VALIMA -->
+    <section class="scene details valima">
+      <div class="detail-card">
+        <div class="icon">✦</div>
+        <p class="eyebrow">THE VALIMA</p>
+        <h2>6 October 2026</h2>
+        <p class="day">Tuesday</p>
+        <p class="time">at <strong>4:00 p.m.</strong></p>
+        <div class="mini-ornament">❈</div>
+        <p class="venue-title">A.R. Function Hall</p>
+        <p>Near Mockuppal Railway Gate,<br>MPL Road, Kadiri.</p>
+      </div>
+    </section>
+
+    <!-- 05: MAP / RSVP -->
+    <section class="scene rsvp">
+      <div class="rsvp-content">
+        <p class="eyebrow">COME CELEBRATE WITH US</p>
+        <h2>Save the Date</h2>
+        <div id="countdown" class="countdown"></div>
+
+        <div class="ornament">✦ ───── ❈ ───── ✦</div>
+
+        <p class="body-copy">
+          Your presence, prayers and blessings<br>
+          will make our day even more special.
+        </p>
+
+        <a class="button" target="_blank"
+           href="https://www.google.com/maps/search/?api=1&query=A.R.+Function+Hall+Kadiri">
+          OPEN LOCATION
+        </a>
+
+        <p class="footer-note">With love from both families</p>
+        <div class="final-heart">♡</div>
+        <h3>Shafiya & Ifroz</h3>
+        <p class="forever">— forever begins here —</p>
+      </div>
+    </section>
+
+  </main>
+
+  <button id="soundBtn" class="sound" aria-label="Toggle music">♫</button>
+
+  <!-- Add your own wedding song as music.mp3 in this folder -->
+  <audio id="music" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
